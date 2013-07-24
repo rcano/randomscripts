@@ -58,14 +58,14 @@ object shelling {
       val res = try stream.asScala.to[IndexedSeq] finally stream.close()
       res
     }
-    def traverseDf(glob: String = null): Stream[Path] = children().toStream.map {
-      case f if f.isDir => f #:: f.traverseDf(glob)
+    def traverseDf(): Stream[Path] = children().toStream.map {
+      case f if f.isDir => f #:: f.traverseDf()
       case f => Stream(f)
     }.flatten
-    def traverseBf(glob: String = null): Stream[Path] = {
+    def traverseBf(): Stream[Path] = {
       val css = children().toStream
       css #::: css.map {
-        case f if f.isDir => f.traverseBf(glob)
+        case f if f.isDir => f.traverseBf()
         case _ => Stream.empty
       }.flatten
     }
