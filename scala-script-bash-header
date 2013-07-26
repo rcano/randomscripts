@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ "${0%scala}jar" -nt "$0" ]
+then
+  exec scala "${0%scala}jar" "$0" "$@"
+else
+  exec scala -save "$0" "$0" "$@"
+fi
+!# 	  		
