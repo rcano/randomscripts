@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# alterante simple shebang header: !/usr/bin/env scala
 if [ "${0%scala}jar" -nt "$0" ]
 then
   exec scala "${0%scala}jar" "$0" "$@"
