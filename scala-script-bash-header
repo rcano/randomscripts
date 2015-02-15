@@ -1,11 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env scala -nc -save
 
-# alterante simple shebang header: !/usr/bin/env scala
-if [ "${0%scala}jar" -nt "$0" ]
-then
-  scala "${0%scala}jar" "$0" "$@"
-else
-  scala -save "$0" "$0" "$@"
-fi
-return
-!# 	  		
+# if [ "${0%scala}jar" -nt "$0" ]
+# then
+#   scala "${0%scala}jar" "$0" "$@"
+# else
+#   scala -save "$0" "$0" "$@"
+# fi
+# return
+# !# 	  		
